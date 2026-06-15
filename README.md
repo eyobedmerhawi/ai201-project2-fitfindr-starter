@@ -63,12 +63,16 @@ step on Windows.
 
 ## AI Usage
 
-1. For search_listings, I provided the Tool 1 spec block from planning.md and 
-   asked Claude to implement the function using load_listings(). I verified it 
-   handled the empty-results case and price filter before running it, then tested 
-   with 3 queries.
+## AI Usage
 
-2. For run_agent(), I provided the Architecture diagram and Planning Loop section 
-   from planning.md and asked Claude to implement the function. I verified the 
-   generated code branched on search_listings results and stored values in the 
-   session dict before running it.
+1. For search_listings, I provided the Tool 1 spec block from planning.md and
+   asked Claude to implement the function using load_listings(). I verified it
+   handled the empty-results case and price filter before running it. I revised
+   the scoring logic to search across title, description, and style_tags rather
+   than title only, which the initial version missed.
+
+2. For run_agent(), I provided the Architecture diagram and Planning Loop section
+   from planning.md and asked Claude to implement the function. I verified the
+   generated code branched on search_listings results. I overrode the initial
+   file structure — the first version placed imports in the wrong order, breaking
+   the file, so I reorganized agent.py into a clean single structure.
