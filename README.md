@@ -8,6 +8,9 @@ A multi-tool AI agent that helps users find secondhand clothing and style it.
 Searches mock listings by keyword relevance, size, and price. Returns ranked list of 
 matching listing dicts, or empty list if nothing matches.
 
+- **Retry logic**: if search_listings returns no results, the agent automatically 
+  retries with no size filter and 4x the price limit, and informs the user what 
+  was adjusted.
 **suggest_outfit(new_item: dict, wardrobe: dict) → str**
 Calls the LLM to suggest 1-2 outfit combinations using the new item and the user's 
 wardrobe pieces. If wardrobe is empty, returns general styling advice instead.
